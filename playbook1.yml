@@ -2,7 +2,9 @@
 - hosts: localhost
   become: true
   tasks:
-      - name: Install nginx on linux
-        ansible.builtin.service:
-          name: nginx
-          state: present
+    - name: Install nginx on Debian/Ubuntu
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+        update_cache: true
+
